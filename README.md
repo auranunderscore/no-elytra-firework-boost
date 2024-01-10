@@ -9,10 +9,10 @@ if a player if flying (detected using a predicate as well) and holding a firewor
 
 once a player with the tag is no longer flying, the storage scoreboard for the respective slot is checked, and the firework item is modified so that the flight value is either 1b, 2b, or 3b, using separate item modifiers based on the score (which SHOULD be the same as the firework before it was modified.), and removes the tag.
 
-in my brief testing, it mostly worked as intended, save for some pretty major flaws that I'm not entirely sure how to account for, and some feedback on that would be greatly appreciated
+# current issues:
 
-1. if you remove the firework from your mainhand/offhand while midflight (be it via dropping, deselecting, or moving elsewhere in the inventory), then land, the firework value is not restored
-2. if you switch the firework from the mainhand to the offhand or vice-versa while midflight, then land, the firework value is either not restored, or restored incorrectly
-3. it doesn't work with firework values lesser than 1 or greater than 3 (not a problem in survival minecraft currently, but a way to support any value could prove useful for mapmakers
-
-on top of that, I have the gut feeling I'm probably missing some really basic optimizations just due to inexperience and time away from coding datapacks :p
+* if you remove the firework from your mainhand/offhand while midflight (be it via dropping, deselecting, or moving elsewhere in the inventory), then land, the firework value is not restored
+* if you switch the firework from the mainhand to the offhand or vice-versa while midflight, then land, the firework value is either not restored, or restored incorrectly
+* it doesn't work with firework values lesser than 1 or greater than 3 (not a problem in survival minecraft currently, but a way to support any value could prove useful for mapmakers
+* generally poor optimization, i think
+* functionally disables loading up a firework crossbow shot while midfight
