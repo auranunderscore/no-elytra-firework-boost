@@ -15,4 +15,5 @@ once a player with the tag is no longer flying, the storage scoreboard for the r
 * if you switch the firework from the mainhand to the offhand or vice-versa while midflight, then land, the firework value is either not restored, or restored incorrectly
 * it doesn't work with firework values lesser than 1 or greater than 3 (not a problem in survival minecraft currently, but a way to support any value could prove useful for mapmakers)
 * generally poor optimization, i think
-* functionally disables loading up a firework crossbow shot while midfight
+* functionally disables loading up a firework crossbow shot midfight
+* functionally disables using a firework on the ground midflight
