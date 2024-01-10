@@ -1,0 +1,7 @@
+{
+  "id": "no-elytra-firework-boost",
+  "pack": {
+    "pack_format": 15,
+    "description": "Disables boosting elytra flight with fireworks, effectively nerfing elytras to encourage alternate transporation methods."
+  }
+}
