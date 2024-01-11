@@ -1,0 +1,21 @@
+[
+  {
+    "function": "minecraft:copy_nbt",
+    "source": {
+      "type": "minecraft:storage",
+      "source": "aur.nefb:firework.flight.incoming.mainhand"
+    },
+    "ops": [
+      {
+        "source": "Flight",
+        "target": "aur.nefb.flight",
+        "op": "replace"
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{Fireworks:{Flight:-128b},aur:{nefb:{null:1b}}}"
+  }
+]
+
