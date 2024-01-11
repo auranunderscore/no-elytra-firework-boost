@@ -1,5 +1,3 @@
-say get!
-
 # get current firework flight value from mainhand, store it in "firework.flight.incoming" as a "clipboard"
 execute as @s store result storage aur.nefb:firework.flight.incoming.mainhand Flight byte 1 run data get entity @s SelectedItem.tag.Fireworks.Flight
 
