@@ -1,6 +1,0 @@
-[
-  {
-    "function": "minecraft:set_nbt",
-    "tag": "{aur:{nefb:{flight:0b,null:0b}}}"
-  }
-]
