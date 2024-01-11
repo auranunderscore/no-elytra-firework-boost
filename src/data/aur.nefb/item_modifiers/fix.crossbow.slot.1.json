@@ -1,0 +1,30 @@
+[
+  {
+    "function": "minecraft:copy_nbt",
+    "source": {
+      "type": "minecraft:storage",
+      "source": "aur.nefb:crossbow.firework.data"
+    },
+    "ops": [
+      {
+        "source": "flight1",
+        "target": "ChargedProjectiles[1].tag.Fireworks.Flight",
+        "op": "replace"
+      }
+    ]
+  },
+  {
+    "function": "minecraft:copy_nbt",
+    "source": {
+      "type": "minecraft:storage",
+      "source": "aur.nefb:crossbow.firework.data"
+    },
+    "ops": [
+      {
+        "source": "zero",
+        "target": "ChargedProjectiles[1].tag.aur.nefb.null",
+        "op": "replace"
+      }
+    ]
+  }
+]

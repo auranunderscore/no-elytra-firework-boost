@@ -1,20 +1,19 @@
-# get current firework flight data for every player in mainhand
-execute as @a if predicate aur.nefb:firework.mainhand store result score @a aur.nefb.fireworkflight.mainhand.current run data get entity @s SelectedItem.tag.Fireworks.Flight
+# adds custom firework tags to unaffected fireworks to allow item stacking
+execute as @a if predicate aur.nefb:firework.mainhand unless data entity @s SelectedItem.tag.aur.nefb.null run item modify entity @s weapon.mainhand aur.nefb:initialize.firework.tags
+execute as @a if predicate aur.nefb:firework.offhand unless data entity @s Inventory[{Slot:-106b}].tag.aur.nefb.null run item modify entity @s weapon.offhand aur.nefb:initialize.firework.tags
 
-# if value is over 0, put in storage scoreboard
-execute as @a[scores={aur.nefb.fireworkflight.mainhand.current=1..}] if predicate aur.nefb:firework.mainhand store result score @s aur.nefb.fireworkflight.mainhand.storage run data get entity @s SelectedItem.tag.Fireworks.Flight
+# nullify mainhand rocket if player is flying
+execute as @a if predicate aur.nefb:isflying if predicate aur.nefb:firework.mainhand unless predicate aur.nefb:nullified.rocket.mainhand run function aur.nefb:nullify.firework.mainhand
 
-# same but for offhand
-execute as @a if predicate aur.nefb:firework.offhand store result score @a aur.nefb.fireworkflight.offhand.current run data get entity @s Inventory[{Slot:-106b}].tag.Fireworks.Flight
+# nullify offhand rocket if player is flying
+execute as @a if predicate aur.nefb:isflying if predicate aur.nefb:firework.offhand unless predicate aur.nefb:nullified.rocket.offhand run function aur.nefb:nullify.firework.offhand
 
-execute as @a[scores={aur.nefb.fireworkflight.offhand.current=1..}] if predicate aur.nefb:firework.mainhand store result score @s aur.nefb.fireworkflight.offhand.storage run data get entity @s Inventory[{Slot:-106b}].tag.Fireworks.Flight
+# restore mainhand rocket if player is not flying
+execute as @a unless predicate aur.nefb:isflying if predicate aur.nefb:nullified.rocket.mainhand run function aur.nefb:restore.firework.mainhand
 
-# nullify fireworks if flying
+# restore offhand rocket if player is not flying
+execute as @a unless predicate aur.nefb:isflying if predicate aur.nefb:nullified.rocket.offhand run function aur.nefb:restore.firework.offhand
 
-execute as @a if predicate aur.nefb:firework.offhand if predicate aur.nefb:isflying run function aur.nefb:nullify.offhand
-execute as @a if predicate aur.nefb:firework.mainhand if predicate aur.nefb:isflying run function aur.nefb:nullify.mainhand
-
-# restore fireworks once no longer flying
-
-execute as @a[tag=aur.nefb.mainhand.modified] unless predicate aur.nefb:isflying run function aur.nefb:restore.mainhand
-execute as @a[tag=aur.nefb.offhand.modified] unless predicate aur.nefb:isflying run function aur.nefb:restore.offhand
+# CROSSBOW FUNCTIONALITY
+# detect if player holding crossbow has firework with tag aur.nefb.null = 1
+execute as @a if predicate aur.nefb:holding.crossbow run function aur.nefb:check.crossbow

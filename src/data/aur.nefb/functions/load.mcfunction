@@ -1,5 +1,2 @@
-scoreboard objectives add aur.nefb.fireworkflight.mainhand.current dummy
-scoreboard objectives add aur.nefb.fireworkflight.mainhand.storage dummy
-scoreboard objectives add aur.nefb.fireworkflight.offhand.current dummy
-scoreboard objectives add aur.nefb.fireworkflight.offhand.storage dummy
+data modify storage aur.nefb:crossbow.firework.data zero set value 0b
 say Success!
